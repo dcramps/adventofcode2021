@@ -1,6 +1,6 @@
 import Foundation
 
 protocol Day {
-    func part1() -> String
-    func part2() -> String
+    func part1() -> Int
+    func part2() -> Int
 }

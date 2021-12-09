@@ -1,10 +1,10 @@
 import Foundation
 
 struct Day1: Day {
-    func part1() -> String {
+    func part1() -> Int {
         let input = InputFile(fileName: "Day1").lines.map { Int($0)! }
         let increases = _part1(input: input)
-        return String(describing: increases)
+        return increases
     }
 
     func _part1(input: [Int]) -> Int {
@@ -18,7 +18,7 @@ struct Day1: Day {
         return increases
     }
 
-    func part2() -> String {
+    func part2() -> Int {
         let input = InputFile(fileName: "Day1").lines.map { Int($0)! }
 
         let windows = (0 ..< input.count).compactMap { index -> Int? in
@@ -30,6 +30,6 @@ struct Day1: Day {
         }
 
         let increases = _part1(input: windows)
-        return String(describing: increases)
+        return increases
     }
 }

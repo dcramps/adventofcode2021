@@ -8,7 +8,7 @@
 import Foundation
 
 struct Day5: Day {
-    func part1() -> String {
+    func part1() -> Int {
         let inputData = makeIntArray(inputFile: InputFile(fileName: "Day5"))
         var grid = Grid(inputData: inputData)
         markPart1(inputData: inputData, grid: &grid)
@@ -30,7 +30,7 @@ struct Day5: Day {
         }
     }
 
-    func part2() -> String {
+    func part2() -> Int {
         let inputData = makeIntArray(inputFile: InputFile(fileName: "Day5"))
         var grid = Grid(inputData: inputData)
 
@@ -96,7 +96,7 @@ final class Grid {
     }
 
     private var data: [[Character]]
-    var count: String {
+    var count: Int {
         var count = 0
         for row in data {
             for character in row {
@@ -106,7 +106,7 @@ final class Grid {
             }
         }
 
-        return "\(count)"
+        return count
     }
 
     var stringValue: String {

@@ -6,8 +6,27 @@ let days: [Day] = [
     Day3(),
     Day4(),
     Day5(),
+    Day6(),
 ]
+
+var ticker = Ticker()
 for day in days {
-    print(day.part1())
-    print(day.part2())
+    ticker.start()
+    let p1 = day.part1()
+    print("[\(ticker.finish())] \(p1)")
+
+    ticker.start()
+    let p2 = day.part2()
+    print("[\(ticker.finish())] \(p2)")
+}
+
+struct Ticker {
+    private var startDate: Date!
+    mutating func start() {
+        startDate = Date()
+    }
+
+    func finish() -> String {
+        String(format: "%.3f ms", Date().timeIntervalSince(startDate) * 1000)
+    }
 }

@@ -14,7 +14,7 @@ struct Day2: Day {
         case up
     }
 
-    func part1() -> String {
+    func part1() -> Int {
         let input = InputFile(fileName: "Day2").lines
         var horizontal = 0
         var vertical = 0
@@ -33,10 +33,10 @@ struct Day2: Day {
             }
         }
 
-        return String(describing: vertical * horizontal)
+        return vertical * horizontal
     }
 
-    func part2() -> String {
+    func part2() -> Int {
         let input = InputFile(fileName: "Day2").lines
         var horizontal = 0
         var vertical = 0
@@ -57,6 +57,6 @@ struct Day2: Day {
             }
         }
 
-        return String(describing: vertical * horizontal)
+        return vertical * horizontal
     }
 }

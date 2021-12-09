@@ -8,7 +8,7 @@
 import Foundation
 
 struct Day3: Day {
-    func part1() -> String {
+    func part1() -> Int {
         let input = InputFile(fileName: "Day3")
             .lines
             .map { Array($0) }
@@ -17,7 +17,7 @@ struct Day3: Day {
         var epsilon: [Int] = []
         _part1(input: input, mostCommon: { gamma.append($0) }, leastCommon: { epsilon.append($0) })
 
-        return "\(gamma.fromBinaryInt * epsilon.fromBinaryInt)"
+        return gamma.fromBinaryInt * epsilon.fromBinaryInt
     }
 
     private func _part1(input: [[String.Element]], mostCommon: (Int) -> Void, leastCommon: (Int) -> Void) {
@@ -37,7 +37,7 @@ struct Day3: Day {
         }
     }
 
-    func part2() -> String {
+    func part2() -> Int {
         let input = InputFile(fileName: "Day3")
             .lines
             .map { Array($0) }
@@ -45,7 +45,7 @@ struct Day3: Day {
         let oxygenGeneratorRating = _part2(input: input, criteria: { $0 >= $1 }).compactMap { Int(String($0)) }.fromBinaryInt
         let co2ScrubberRating = _part2(input: input, criteria: { $0 < $1 }).compactMap { Int(String($0)) }.fromBinaryInt
 
-        return "\(oxygenGeneratorRating * co2ScrubberRating)"
+        return oxygenGeneratorRating * co2ScrubberRating
 
     }
 

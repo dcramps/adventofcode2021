@@ -8,7 +8,7 @@
 import Foundation
 
 struct Day4: Day {
-    func part1() -> String {
+    func part1() -> Int {
         let inputFile = InputFile(fileName: "Day4", trimmingEmptyLines: false)
         let boards = processInput(input: inputFile)
         let pickOrder = inputFile.lines.first!.components(separatedBy: ",").map { Int($0)! }
@@ -17,7 +17,7 @@ struct Day4: Day {
             for board in boards {
                 board.mark(num)
                 if board.isWinner {
-                    return "\(board.unmarkedSum * num)"
+                    return board.unmarkedSum * num
                 }
             }
         }
@@ -25,7 +25,7 @@ struct Day4: Day {
         fatalError()
     }
 
-    func part2() -> String {
+    func part2() -> Int {
         let inputFile = InputFile(fileName: "Day4", trimmingEmptyLines: false)
         let boards = processInput(input: inputFile)
         let pickOrder = inputFile.lines.first!.components(separatedBy: ",").map { Int($0)! }
@@ -56,7 +56,7 @@ struct Day4: Day {
             fatalError("you fucked up")
         }
 
-        return "\(boards[winnerIndices.last!].unmarkedSum * lastCalled)"
+        return boards[winnerIndices.last!].unmarkedSum * lastCalled
     }
 
     private func processInput(input: InputFile) -> [Board] {
